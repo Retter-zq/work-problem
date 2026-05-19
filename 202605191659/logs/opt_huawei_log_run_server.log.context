@@ -1,0 +1,101 @@
+env_max_model_len is 524288
+env_VLLM_LOGGING_LEVEL is DEBUG
+env_gpu_util is 0.7
+env_kv_transfer_config is {"kv_connector":"LLMDataDistConnector","kv_role":"kv_producer","kv_rank":0,"kv_parallel_size":2}
+HCCL_BUFFSIZE is 1000
+engine_id is 0 master_ip is 10.37.129.96, cur_pod_ip is 10.37.129.96, server_list is 
+tp is 16, REPLICAS_INSTANCES is 1, PREFILL_SERVER_LIST is 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15, npu is 16, VLLM_DP_SIZE is 1
+MODEL_EXTRA_CFG_PATH is , reasoning_parser is 'pangu', gpu_util is 0.7, max_model_len is 524288, max_batch_tokens is 65536, speculative_config is '{"method":"mtp","num_speculative_tokens":3}' , additional_config is '{"enable_low_latency":true}'
+start to check hccl_port
+current checked hccl_port is 32000
+current checked hccl_port is 32001
+current checked hccl_port is 32002
+current checked hccl_port is 32003
+current checked hccl_port is 32004
+current checked hccl_port is 32005
+current checked hccl_port is 32006
+current checked hccl_port is 32007
+current checked hccl_port is 32008
+current checked hccl_port is 32009
+current checked hccl_port is 32010
+current checked hccl_port is 32011
+current checked hccl_port is 32012
+current checked hccl_port is 32013
+current checked hccl_port is 32014
+current checked hccl_port is 32015
+env_enable_log_requests is true
+env_additional_config is {"enable_low_latency":true}
+env_speculative_config is {"method":"mtp","num_speculative_tokens":3}
+block_size is 128
+vllm serve /mnt/paas/kubernetes/kubelet/pangu-92B/pangu-92B-0516 --host 10.37.129.96 --trust-remote-code --gpu-memory-utilization 0.7 --tensor-parallel-size 16 --data-parallel-size 1 --data-parallel-size-local 1 --max-num-batched-tokens 65536 --enforce-eager --data-parallel-address 10.37.129.96 --data-parallel-rpc-port 8000 --port 1025 --dtype bfloat16 --served-model-name pangu_92B-1.0.0 --max-model-len 524288 --kv-transfer-config {"kv_connector":"LLMDataDistConnector","kv_role":"kv_producer","kv_rank":0,"kv_parallel_size":2} --enable-expert-parallel --max-num-seqs 4 --long-prefill-token-threshold 16384 --reasoning-parser pangu --enable-auto-tool-choice --tool-call-parser pangu --no-disable-hybrid-kv-cache-manager --enable-log-requests --additional-config {"enable_low_latency":true} --speculative_config {"method":"mtp","num_speculative_tokens":3} --enable-prefix-caching --enable-prompt-tokens-details --scheduling-policy priority --no-disable-hybrid-kv-cache-manager --block_size=128
+2026-05-18 11:30:59,075 - vllm.plugins - INFO - Available plugins for group vllm.platform_plugins:
+2026-05-18 11:30:59,076 - vllm.plugins - INFO - - omni-cache -> omni_cache.plugin:register
+2026-05-18 11:30:59,076 - vllm.plugins - INFO - - omni-cache-mock -> omni_cache.mock_schedule:install_in_worker
+2026-05-18 11:30:59,076 - vllm.plugins - INFO - - omni-npu -> omni_npu.vllm_plugin:plugin
+2026-05-18 11:30:59,076 - vllm.plugins - INFO - Loading plugin omni-npu
+2026-05-18 11:30:59,077 - vllm.platforms - DEBUG - Checking if TPU platform is available.
+2026-05-18 11:30:59,077 - vllm.platforms - DEBUG - TPU platform is not available because: No module named 'libtpu'
+2026-05-18 11:30:59,077 - vllm.platforms - DEBUG - Checking if CUDA platform is available.
+2026-05-18 11:30:59,083 - vllm.platforms - DEBUG - Exception happens when checking CUDA platform: NVML Shared Library Not Found
+2026-05-18 11:30:59,083 - vllm.platforms - DEBUG - CUDA platform is not available because: NVML Shared Library Not Found
+2026-05-18 11:30:59,083 - vllm.platforms - DEBUG - Checking if ROCm platform is available.
+2026-05-18 11:30:59,083 - vllm.platforms - DEBUG - ROCm platform is not available because: No module named 'amdsmi'
+2026-05-18 11:30:59,083 - vllm.platforms - DEBUG - Checking if XPU platform is available.
+2026-05-18 11:30:59,084 - vllm.platforms - DEBUG - XPU platform is not available because: No module named 'intel_extension_for_pytorch'
+2026-05-18 11:30:59,084 - vllm.platforms - DEBUG - Checking if CPU platform is available.
+2026-05-18 11:30:59,085 - vllm.platforms - INFO - Platform plugin omni-npu is activated
+2026-05-18 11:31:01,377 - vllm.triton_utils.importing - INFO - Triton not installed or not compatible; certain GPU-related functions will not be available.
+2026-05-18 11:31:02,190 - vllm.utils.flashinfer - DEBUG - flashinfer-cubin package was not found
+2026-05-18 11:31:02,190 - vllm.utils.flashinfer - DEBUG - FlashInfer unavailable since nvcc was not found and not using pre-downloaded cubins
+2026-05-18 11:31:02,191 - vllm.utils.import_utils - DEBUG - Loading module triton_kernels from /opt/huawei/miniconda3/lib/python3.11/site-packages/vllm/third_party/triton_kernels/__init__.py.
+2026-05-18 11:31:02,191 - vllm.model_executor.layers.fused_moe.config - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-05-18 11:31:02,271 - vllm.model_executor.layers.fused_moe.gpt_oss_triton_kernels_moe - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-05-18 11:31:03,606 - vllm.plugins - DEBUG - Available plugins for group vllm.general_plugins:
+2026-05-18 11:31:03,606 - vllm.plugins - DEBUG - - msserviceprofiler -> ms_service_profiler.patcher.vllm:register_service_profiler
+2026-05-18 11:31:03,606 - vllm.plugins - DEBUG - - omni_cache_input_swap -> omni_cache.input_swap:install
+2026-05-18 11:31:03,607 - vllm.plugins - DEBUG - - omni_cache_kv_dump -> omni_cache.diagnostics.dump_controller:install
+2026-05-18 11:31:03,607 - vllm.plugins - DEBUG - - omni_cache_kv_step_dumper -> omni_cache.diagnostics.kv_step_dumper:install
+2026-05-18 11:31:03,607 - vllm.plugins - DEBUG - - omni_cache_mock_schedule -> omni_cache.mock_schedule:install_in_worker
+2026-05-18 11:31:03,607 - vllm.plugins - DEBUG - - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver
+2026-05-18 11:31:03,607 - vllm.plugins - DEBUG - - omni_custom_models -> omni_npu.v1.models:register_models
+2026-05-18 11:31:03,607 - vllm.plugins - DEBUG - - omni_models_v0 -> omni_npu.v0.models:register_model
+2026-05-18 11:31:03,607 - vllm.plugins - DEBUG - - omni_npu_patches -> omni_npu.vllm_patches:apply_patches
+2026-05-18 11:31:03,607 - vllm.plugins - DEBUG - - omni_pangu_models -> omni_models.models:register_model
+2026-05-18 11:31:03,607 - vllm.plugins - DEBUG - Loading plugin omni_custom_models
+2026-05-18 11:31:03,610 - vllm.plugins - DEBUG - Loading plugin omni_npu_patches
+2026-05-18 11:31:03,611 - vllm.plugins - DEBUG - Loading plugin omni_pangu_models
+2026-05-18 11:31:03,612 - vllm.model_executor.models.registry - WARNING - Model architecture DeepseekV32ForCausalLM is already registered, and will be overwritten by the new model class omni_npu.v1.models.deepseek.deepseek_v3:DeepseekV3ForCausalLM.
+2026-05-18 11:31:03,612 - vllm.model_executor.models.registry - WARNING - Model architecture DeepseekV3ForCausalLM is already registered, and will be overwritten by the new model class omni_npu.v1.models.deepseek.deepseek_v3:DeepseekV3ForCausalLM.
+2026-05-18 11:31:03,612 - vllm.model_executor.models.registry - WARNING - Model architecture DeepSeekMTPModel is already registered, and will be overwritten by the new model class omni_npu.v1.models.deepseek.deepseek_mtp:DeepSeekMTP.
+2026-05-18 11:31:03,612 - vllm.model_executor.models.registry - WARNING - Model architecture Qwen3ForCausalLM is already registered, and will be overwritten by the new model class omni_npu.v1.models.qwen.qwen3:Qwen3ForCausalLM.
+2026-05-18 11:31:03,612 - vllm.model_executor.models.registry - WARNING - Model architecture Qwen3MoeForCausalLM is already registered, and will be overwritten by the new model class omni_npu.v1.models.qwen.qwen3_moe:Qwen3MoeForCausalLM.
+2026-05-18 11:31:03,612 - vllm.model_executor.models.registry - WARNING - Model architecture Qwen3VLForConditionalGeneration is already registered, and will be overwritten by the new model class omni_npu.v1.models.qwen.qwen3_vl:Qwen3VLForConditionalGeneration.
+2026-05-18 11:31:03,613 - vllm.model_executor.models.registry - WARNING - Model architecture Qwen3VLMoeForConditionalGeneration is already registered, and will be overwritten by the new model class omni_npu.v1.models.qwen.qwen3_vl_moe:Qwen3VLMoeForConditionalGeneration.
+2026-05-18 11:31:03,613 - vllm.model_executor.models.registry - WARNING - Model architecture PanguUltraMoEForCausalLM is already registered, and will be overwritten by the new model class omni_npu.v1.models.pangu.pangu_ultra_moe:PanguUltraMoEForCausalLM.
+2026-05-18 11:31:03,613 - vllm.model_executor.models.registry - WARNING - Model architecture Glm4MoeForCausalLM is already registered, and will be overwritten by the new model class omni_npu.v1.models.glm.glm4_moe:Glm4MoeForCausalLM.
+2026-05-18 11:31:03,613 - vllm.model_executor.models.registry - WARNING - Model architecture Glm4MoeMTPModel is already registered, and will be overwritten by the new model class omni_npu.v1.models.glm.glm4_moe_mtp:Glm4MoeMTP.
+2026-05-18 11:31:03,613 - vllm.model_executor.models.registry - WARNING - Model architecture GptOssForCausalLM is already registered, and will be overwritten by the new model class omni_npu.v1.models.gpt_oss.gpt_oss:GptOssForCausalLM.
+2026-05-18 11:31:03,613 - vllm.model_executor.models.registry - WARNING - Model architecture OpenPanguMTPModel is already registered, and will be overwritten by the new model class omni_npu.v1.models.pangu.pangu_ultra_moe_mtp:OpenPanguMTP.
+2026-05-18 11:31:03,613 - vllm.model_executor.models.registry - WARNING - Model architecture PanguProMoEV2ForCausalLM is already registered, and will be overwritten by the new model class omni_npu.v1.models.pangu.pangu_pro_moe:PanguProMoEV2ForCausalLM.
+2026-05-18 11:31:04,779 - vllm.compilation.decorators - DEBUG - Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.deepseek_v2.DeepseekV2Model'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds']
+2026-05-18 11:31:04,783 - vllm.compilation.decorators - DEBUG - Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.llama.LlamaModel'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds']
+[2026-05-18 11:31:04] ERROR patch_manager.py:36: failed to apply PanguV2HybridModelsConfigMapPatch: vllm.model_executor.models.config.MODELS_CONFIG_MAP already patched by PanguV2MoEModelsConfigMapPatch
+[2026-05-18 11:31:04] ERROR patch_manager.py:36: failed to apply PanguV2HybridGPUModelRunnerPatch: GPUModelRunner._build_attention_metadata already patched by PanguV2MoeGPUModelRunnerPatch
+2026-05-18 11:31:04,989 - vllm.model_executor.models.registry - WARNING - Model architecture PanguUltraMoEForCausalLM is already registered, and will be overwritten by the new model class omni_models.models.pangu.openpangu:PanguUltraMoEForCausalLM.
+2026-05-18 11:31:04,989 - vllm.model_executor.models.registry - WARNING - Model architecture PanguEmbeddedForCausalLM is already registered, and will be overwritten by the new model class omni_models.models.pangu.openpangu:PanguEmbeddedForCausalLM.
+2026-05-18 11:31:04,990 - vllm.model_executor.models.registry - WARNING - Model architecture PanguProMoEV2ForCausalLM is already registered, and will be overwritten by the new model class vllm.model_executor.models.openpangu:PanguProMoEV2ForCausalLM.
+2026-05-18 11:31:04,996 - vllm.config.parallel - WARNING - VLLM_ALL2ALL_BACKEND environment variable is deprecated and will be removed in v0.15.0. Please use the --all2all-backend command-line argument instead.
+2026-05-18 11:31:05,021 - vllm.utils.argparse_utils - WARNING - Found duplicate keys --no-disable-hybrid-kv-cache-manager
+2026-05-18 11:31:05,024 - vllm.entrypoints.openai.api_server - INFO - vLLM API server version 0.14.0
+2026-05-18 11:31:05,028 - vllm.entrypoints.utils - INFO - non-default args: {'model_tag': '/mnt/paas/kubernetes/kubelet/pangu-92B/pangu-92B-0516', 'host': '10.37.129.96', 'port': 1025, 'enable_auto_tool_choice': True, 'tool_call_parser': 'pangu', 'enable_prompt_tokens_details': True, 'model': '/mnt/paas/kubernetes/kubelet/pangu-92B/pangu-92B-0516', 'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 524288, 'enforce_eager': True, 'served_model_name': ['pangu_92B-1.0.0'], 'reasoning_parser': 'pangu', 'tensor_parallel_size': 16, 'data_parallel_size_local': 1, 'data_parallel_address': '10.37.129.96', 'data_parallel_rpc_port': 8000, 'enable_expert_parallel': True, 'block_size': 128, 'gpu_memory_utilization': 0.7, 'enable_prefix_caching': True, 'max_num_batched_tokens': 65536, 'max_num_seqs': 4, 'long_prefill_token_threshold': 16384, 'scheduling_policy': 'priority', 'disable_hybrid_kv_cache_manager': False, 'speculative_config': {'method': 'mtp', 'num_speculative_tokens': 3}, 'kv_transfer_config': KVTransferConfig(kv_connector='LLMDataDistConnector', engine_id='5d87a2ed-8a44-4f18-8f89-d9942e57672f', kv_buffer_device='cuda', kv_buffer_size=1000000000.0, kv_role='kv_producer', kv_rank=0, kv_parallel_size=2, kv_ip='127.0.0.1', kv_port=14579, kv_connector_extra_config={}, kv_connector_module_path=None, enable_permute_local_kv=False, kv_load_failure_policy='recompute'), 'additional_config': {'enable_low_latency': True}, 'enable_log_requests': True}
+[0;36m(APIServer pid=623)[0;0m The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(APIServer pid=623)[0;0m The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(APIServer pid=623)[0;0m You are using a model of type pangu_v2_moe to instantiate a model of type pangu_ultra_moe. This is not supported for all configurations of models and can yield errors.
+2026-05-18 11:31:09,651 - vllm.plugins - INFO - Available plugins for group vllm.platform_plugins:
+2026-05-18 11:31:09,651 - vllm.plugins - INFO - - omni-cache -> omni_cache.plugin:register
+2026-05-18 11:31:09,651 - vllm.plugins - INFO - - omni-cache-mock -> omni_cache.mock_schedule:install_in_worker
+2026-05-18 11:31:09,651 - vllm.plugins - INFO - - omni-npu -> omni_npu.vllm_plugin:plugin
+2026-05-18 11:31:09,652 - vllm.plugins - INFO - Loading plugin omni-npu
+2026-05-18 11:31:09,652 - vllm.platforms - DEBUG - Checking if TPU platform is available.
+2026-05-18 11:31:09,653 - vllm.platforms - DEBUG - TPU platform is not available because: No module named 'libtpu'
+2026-05-18 11:31:09,653 - vllm.platforms - DEBUG - Checking if CUDA platform is available.

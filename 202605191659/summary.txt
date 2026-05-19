@@ -1,0 +1,8 @@
+Host: 10.37.138.123
+Container: k8s_appcontainer_pangu92b1005308-4xcd2-0-0-0_cloudservice_94738497-8f1d-4857-a20d-b9b472a868d0_0
+Timestamp: 202605191659
+
+=== Log Files with Errors ===
+  /opt/huawei/log/run/server.log (100 error lines)
+
+=== Source Files Referenced ===
