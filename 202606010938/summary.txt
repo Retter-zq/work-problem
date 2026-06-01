@@ -1,5 +1,5 @@
-Host: 10.37.150.153
-Container: k8s_appcontainer_pangu505b1008867-mq5xp-1-0-0_cloudservice_db029ad0-b2d7-4b24-b916-ac9d554a0f68_2
+Host: 10.37.140.178
+Container: k8s_appcontainer_pangu505b1008867-mq5xp-1-0-1_cloudservice_61c1cc19-7e2b-43a9-8c8d-218dafc19b85_2
 Timestamp: 202606010938
 
 === vllm serve Command ===
