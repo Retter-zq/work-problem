@@ -1,0 +1,28 @@
+Host: 10.37.138.123
+Container: k8s_appcontainer_pangu505b1006052-jk62w-1-0-0_cloudservice_90b24ed9-34ed-4af6-8953-5de71dbbfa1e_0
+Timestamp: 202606042104
+
+=== vllm serve Command ===
+vllm serve /mnt/paas/kubernetes/kubelet/pangu-505B-quant/0604/iter_0008900-joint-smooth-int8-v3 --host 10.37.158.168 --trust-remote-code --gpu-memory-utilization 0.9 --tensor-parallel-size 1 --data-parallel-size 32 --data-parallel-size-local 1 --data-parallel-address 10.37.158.168 --data-parallel-rpc-port 8000 --data-parallel-rank 0 --port 1025 --dtype bfloat16 --served-model-name Pangu_505B-1.0.0 --max-model-len 51200 --kv-transfer-config {"kv_connector":"LLMDataDistConnector","kv_role":"kv_consumer","kv_rank":1,"kv_parallel_size":5} --enable-expert-parallel --max-num-seqs 3 --reasoning-parser pangu --enable-auto-tool-choice --tool-call-parser pangu --swap_space 10 --no-disable-hybrid-kv-cache-manager --enable-prefix-caching --enable-prompt-tokens-details --enable-lopt --lopt-pool-size 16 --lopt-chunk-size 4096 --kv-cache-dtype li_int8_ds_mla --speculative_config {"method":"mtp","num_speculative_tokens":3} --compilation-config {"level":3,"cudagraph_mode":"FULL","cudagraph_capture_sizes":[12],"backend":"","compile_sizes":[12]} --num-gpu-blocks-override 500 --trust-request-chat-template --enable-log-requests --additional-config {"enable_low_latency":true,"npugraph_ex_config":{"enable":true,"super_kernel_optimize":false,"static_kernel_compile":false}} --scheduling-policy priority --block_size=128
+
+=== Traceback Stacks ===
+
+=== Error Lines ===
+  opt_huawei_log_run_server_0.log.errors (6 lines)
+  opt_huawei_log_run_server_1.log.errors (6 lines)
+  opt_huawei_log_run_server_10.log.errors (6 lines)
+  opt_huawei_log_run_server_11.log.errors (6 lines)
+  opt_huawei_log_run_server_12.log.errors (6 lines)
+  opt_huawei_log_run_server_13.log.errors (6 lines)
+  opt_huawei_log_run_server_14.log.errors (6 lines)
+  opt_huawei_log_run_server_15.log.errors (6 lines)
+  opt_huawei_log_run_server_2.log.errors (6 lines)
+  opt_huawei_log_run_server_3.log.errors (6 lines)
+  opt_huawei_log_run_server_4.log.errors (6 lines)
+  opt_huawei_log_run_server_5.log.errors (6 lines)
+  opt_huawei_log_run_server_6.log.errors (6 lines)
+  opt_huawei_log_run_server_7.log.errors (6 lines)
+  opt_huawei_log_run_server_8.log.errors (6 lines)
+  opt_huawei_log_run_server_9.log.errors (6 lines)
+
+=== Source Files Referenced ===
