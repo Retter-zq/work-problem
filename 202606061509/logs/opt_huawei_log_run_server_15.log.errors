@@ -1,0 +1,6 @@
+2026-06-06 14:51:20,484 - vllm.model_executor.layers.fused_moe.config - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-06-06 14:51:20,578 - vllm.model_executor.layers.fused_moe.gpt_oss_triton_kernels_moe - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-06-06 14:51:43,994 - vllm.model_executor.layers.fused_moe.config - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-06-06 14:51:44,146 - vllm.model_executor.layers.fused_moe.gpt_oss_triton_kernels_moe - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-06-06 14:51:59,709 - vllm.model_executor.layers.fused_moe.config - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-06-06 14:51:59,897 - vllm.model_executor.layers.fused_moe.gpt_oss_triton_kernels_moe - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
