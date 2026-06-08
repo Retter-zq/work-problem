@@ -1,0 +1,9 @@
+2026-06-08 19:49:22,056 - vllm.model_executor.layers.fused_moe.config - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-06-08 19:49:22,144 - vllm.model_executor.layers.fused_moe.gpt_oss_triton_kernels_moe - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-06-08 19:50:18,850 - vllm.model_executor.layers.fused_moe.config - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-06-08 19:50:19,018 - vllm.model_executor.layers.fused_moe.gpt_oss_triton_kernels_moe - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-06-08 19:50:34,342 - vllm.model_executor.layers.fused_moe.config - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-06-08 19:50:34,506 - vllm.model_executor.layers.fused_moe.gpt_oss_triton_kernels_moe - ERROR - Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton'
+2026-06-08 19:52:53,049 - vllm.v1.engine.core - ERROR - EngineCore failed to start.
+[0;36m(APIServer pid=700)[0;0m     raise RuntimeError(
+[0;36m(APIServer pid=700)[0;0m RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}

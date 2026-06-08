@@ -1,13 +1,29 @@
-Host: 10.37.147.122
-Container: k8s_appcontainer_pangu505b1007343-c86bs-0-0-0_cloudservice_78d5e4b8-6d21-4b1d-8e9c-7bcde7fbe9fd_0
+Host: 10.37.138.123
+Container: k8s_appcontainer_pangu505b1007343-c86bs-1-0-0_cloudservice_b961e600-ada0-472e-a82d-440fc2b0d570_0
 Timestamp: 202606082002
 
 === vllm serve Command ===
-vllm serve /mnt/paas/kubernetes/kubelet/pangu-505B-quant/0604/iter_0008900-joint-smooth-int8-v3 --host 10.37.130.42 --trust-remote-code --gpu-memory-utilization 0.95 --tensor-parallel-size 16 --data-parallel-size 1 --data-parallel-size-local 1 --max-num-batched-tokens 102400 --enforce-eager --data-parallel-address 10.37.130.42 --data-parallel-rpc-port 8000 --port 1025 --dtype bfloat16 --served-model-name Pangu_505B-1.0.0 --max-model-len 256256 --enable-expert-parallel --max-num-seqs 2 --reasoning-parser pangu --enable-auto-tool-choice --tool-call-parser pangu --long-prefill-token-threshold 16384 --no-disable-hybrid-kv-cache-manager --additional-config {"enable_low_latency":true} --speculative_config {"method":"mtp","num_speculative_tokens":3} --trust-request-chat-template --enable-log-requests --enable-prefix-caching --enable-prompt-tokens-details --scheduling-policy priority --no-disable-hybrid-kv-cache-manager --block_size=128 --kv-transfer-config {"kv_connector":"OmniCacheConnector","kv_role":"kv_producer","kv_rank":0,"kv_parallel_size":5} --kv-events-config {"enable_kv_cache_events":true,"publisher":"zmq","topic":"kv-events","endpoint":"tcp://*:9100"}
+vllm serve /mnt/paas/kubernetes/kubelet/pangu-505B-quant/0604/iter_0008900-joint-smooth-int8-v3 --host 10.37.128.188 --trust-remote-code --gpu-memory-utilization 0.8 --tensor-parallel-size 1 --data-parallel-size 32 --data-parallel-size-local 1 --data-parallel-address 10.37.128.188 --data-parallel-rpc-port 8000 --data-parallel-rank 0 --port 1025 --dtype bfloat16 --served-model-name Pangu_505B-1.0.0 --max-model-len 512512 --enable-expert-parallel --max-num-seqs 24 --reasoning-parser pangu --enable-auto-tool-choice --tool-call-parser pangu --no-disable-hybrid-kv-cache-manager --kv-transfer-config {"kv_connector":"OmniCacheConnector","kv_role":"kv_consumer","kv_rank":4,"kv_parallel_size":5} --no-enable-prefix-caching --speculative_config {"method":"mtp","num_speculative_tokens":3} --compilation-config {"level":3,"cudagraph_mode":"FULL","cudagraph_capture_sizes":[96],"backend":"","compile_sizes":[96]} --no-enable-chunked-prefill --trust-request-chat-template --enable-log-requests --additional-config {"enable_low_latency":true,"npugraph_ex_config":{"enable":true,"super_kernel_optimize":false,"static_kernel_compile":true}} --scheduling-policy priority --block_size=128
 
 === Traceback Stacks ===
 
 === Error Lines ===
   opt_huawei_log_run_server.log.errors (25 lines)
+  opt_huawei_log_run_server_0.log.errors (9 lines)
+  opt_huawei_log_run_server_1.log.errors (9 lines)
+  opt_huawei_log_run_server_10.log.errors (9 lines)
+  opt_huawei_log_run_server_11.log.errors (9 lines)
+  opt_huawei_log_run_server_12.log.errors (9 lines)
+  opt_huawei_log_run_server_13.log.errors (9 lines)
+  opt_huawei_log_run_server_14.log.errors (9 lines)
+  opt_huawei_log_run_server_15.log.errors (9 lines)
+  opt_huawei_log_run_server_2.log.errors (9 lines)
+  opt_huawei_log_run_server_3.log.errors (9 lines)
+  opt_huawei_log_run_server_4.log.errors (9 lines)
+  opt_huawei_log_run_server_5.log.errors (9 lines)
+  opt_huawei_log_run_server_6.log.errors (9 lines)
+  opt_huawei_log_run_server_7.log.errors (9 lines)
+  opt_huawei_log_run_server_8.log.errors (9 lines)
+  opt_huawei_log_run_server_9.log.errors (9 lines)
 
 === Source Files Referenced ===
